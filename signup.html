@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <!-- Link Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "poppins", sans-serif;
+        }
+
+        body {
+            font-family: 'poppins';
+            font-size: 22px;
+            background: #dfe9f5;
+        }
+
+        .wrapper {
+            width: 330px;
+            padding: 2rem 1rem;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #07001f;
+            margin-bottom: 1.2rem;
+        }
+
+        form input {
+            width: 92%;
+            outline: none;
+            border: 1px solid #fff;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            background: #e4e4e4;
+        }
+
+        button {
+            font-size: 1rem;
+            margin-top: 1.8rem;
+            padding: 10px 0;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            width: 90%;
+            color: #fff;
+            cursor: pointer;
+            background: rgb(17, 107, 143);
+        }
+
+        button:hover {
+            background: rgba(17, 107, 143, 0.877);
+        }
+
+        input:focus {
+            border: 1px solid rgb(192, 192, 192);
+        }
+
+        .terms {
+            margin-top: 0.2em;
+        }
+
+        .terms input {
+            height: 1em;
+            width: 1em;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .terms label {
+            font-size: 0.7em;
+        }
+
+        .terms a {
+            color: rgb(17, 107, 143);
+            text-decoration: none;
+        }
+
+        .member {
+            font-size: 0.8rem;
+            margin-top: 1.4em;
+            color: #636363;
+        }
+
+        .member a {
+            color: rgb(17, 107, 143);
+            text-decoration: none;
+        }
+        #checkbox{
+            margin-top: 13px;
+        }
+
+        .wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .error {
+        color: red;
+    }
+    .strength {
+        font-weight: bold;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Sign Up</h1>
+    <form action="#">
+        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Password">
+        <input type="text" placeholder="Confirm Password">
+        <input type="text" placeholder="Phone Number">
+        <div class="terms">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">I agree to these <a href="#">Terms & Conditions</a></label>
+        </div>
+        <button>Sign Up</button>
+        <div class="member">
+            Already a member? <a href="./login.html">Login Here</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission for now
+    
+        // Retrieve input values
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const phone = document.getElementById('phone').value;
+    
+        // Validate email
+        if (!isValidEmail(email)) {
+            alert('Invalid email address');
+            return;
+        }
+    
+        // Validate phone number
+        if (!isValidPhoneNumber(phone)) {
+            alert('Invalid phone number');
+            return;
+        }
+    
+        // Validate password
+        const passwordStrength = getPasswordStrength(password);
+        console.log('Password Strength:', passwordStrength);
+    });
+    
+    // Function to validate email
+    function isValidEmail(email) {
+        // Add your email validation logic here (e.g., regex validation)
+        return /\S+@\S+\.\S+/.test(email);
+    }
+    
+    // Function to validate phone number
+    function isValidPhoneNumber(phone) {
+        // Add your phone number validation logic here (e.g., regex validation)
+        return /^\d{10}$|^(\d{3}[-.\s]\d{3}[-.\s]\d{4})$/.test(phone);
+    }
+    
+    // Function to determine password strength
+    function getPasswordStrength(password) {
+        // Add your password strength validation logic here
+        // For example, count the number of characters, uppercase, lowercase, numbers, etc.
+        // Then return the strength as 'strong', 'medium', or 'poor'
+        return 'strong'; // Placeholder
+    }
+    </script>
+
+<!-- Link Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
