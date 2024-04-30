@@ -125,6 +125,8 @@
         <div class="password-strength" id="password-strength"></div>
         <span id="password-match" style="color: red; font-size: 13px"></span> <!-- Span for password error message -->
         <input type="password" id="confirm-password" placeholder="Confirm Password">
+<span id="confirm-password-match" style="color: red; font-size: 13px"></span> <!-- Span for confirm password error message -->
+
         <input type="text" id="phone-number" placeholder="Phone Number">
         <span id="phone-match" style="color: red; font-size: 13px"></span> <!-- Span for phone number error message -->
 
@@ -134,7 +136,7 @@
         </div>
         <button type="submit">Sign Up</button>
         <div class="member">
-            Already a member? <a href="./login1.html">Login Here</a>
+            Already a member? <a href="./login.html">Login Here</a>
         </div>
     </form>
 </div>
@@ -191,13 +193,19 @@
             event.preventDefault();
         }
 
+        // if (password !== confirmPassword) {
+        //     passwordMatchSpan.textContent = 'Passwords do not match! Minimum 8 characters, at least one uppercase, and one lowercase, must contain at least one number';
+        //     event.preventDefault();
+        // }
+
         if (password !== confirmPassword) {
-            passwordMatchSpan.textContent = 'Passwords do not match! Minimum 8 characters, at least one uppercase, and one lowercase, must contain at least one number';
-            event.preventDefault();
-        }
+    document.getElementById('confirm-password-match').textContent = 'Passwords do not match.';
+    event.preventDefault();
+}
+
 
         if (!phoneNumberRegex.test(phoneNumber)) {
-            phoneMatchSpan.textContent = 'Please enter a valid phone number (10 digits only or XXX-XXX-XXXX, XXX.XXX.XXXX, XXX XXX XXXX formats).';
+            phoneMatchSpan.textContent = 'Please enter a valid phone number';
             event.preventDefault();
         }
 
